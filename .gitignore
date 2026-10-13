@@ -1,0 +1,40 @@
+# Credit Book - .gitignore
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Environment and local configs
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+application-local.properties
+
+# Backend build and dependencies
+backend/target/
+backend/.mvn/
+backend/*.log
+*.class
+*.jar
+*.war
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Frontend build and dependencies
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# Database & local data
+*.db
+*.sqlite
+*.sql.gz

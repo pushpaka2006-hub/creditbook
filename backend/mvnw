@@ -1,0 +1,17 @@
+#!/bin/sh
+# Portable Maven Runner for macOS / Linux
+
+if [ -z "$JAVA_HOME" ] && [ -d "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home" ]; then
+  export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"
+elif [ -z "$JAVA_HOME" ] && [ -d "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home" ]; then
+  export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
+fi
+
+MVN_BIN="mvn"
+if [ -x "/Users/manikanta/.m2/wrapper/dists/apache-maven-3.9.16/56ba1f9f/bin/mvn" ]; then
+  MVN_BIN="/Users/manikanta/.m2/wrapper/dists/apache-maven-3.9.16/56ba1f9f/bin/mvn"
+elif command -v mvn >/dev/null 2>&1; then
+  MVN_BIN="mvn"
+fi
+
+exec "$MVN_BIN" "$@"
